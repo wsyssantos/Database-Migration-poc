@@ -1,0 +1,29 @@
+apply plugin: 'application'
+apply plugin: 'java'
+
+mainClassName = "dev.wesleysantos.daogenerator.MyDaoGenerator"
+
+def generatedResources = "../database/src/main/java"
+
+sourceSets {
+    main {
+        //let's register an output folder on the main SourceSet:
+        output.dir(generatedResources)
+        //it is now a part of the 'main' classpath and will be a part of the jar
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'org.greenrobot:greendao:3.2.2'
+    implementation 'org.greenrobot:greendao-generator:3.2.2'
+}
+
+task createDocs {
+    def docs = file(generatedResources)
+    docs.mkdirs()
+}
+
+run {
+    args generatedResources
+}

@@ -1,12 +1,12 @@
-package dev.wesleysantos.databasemigration
+package dev.wesleysantos.phraselist
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 
-class MainActivity : AppCompatActivity() {
+class PhraseListActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.activity_phrase_list)
     }
 }
