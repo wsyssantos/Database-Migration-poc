@@ -9,7 +9,8 @@ import dev.wesleysantos.interactor.GetAllPhrasesInteractorImpl
 
 @Module(includes = [
     SchedulerModule::class,
-    ExecutorModule::class
+    ExecutorModule::class,
+    MapperModule::class
 ])
 abstract class InteractorModule {
 

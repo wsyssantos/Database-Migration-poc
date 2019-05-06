@@ -1,0 +1,3 @@
+package dev.wesleysantos.phraselist.adapter.viewmodel
+
+abstract class AbstractListViewModel

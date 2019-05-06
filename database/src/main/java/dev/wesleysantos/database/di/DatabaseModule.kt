@@ -6,7 +6,7 @@ import dagger.Provides
 import dev.wesleysantos.database.handler.DatabaseHandler
 import dev.wesleysantos.database.handler.DatabaseHandlerImpl
 
-@Module(includes = [DatabaseModule.DatabaseHandlerModule::class])
+@Module(includes = [DatabaseModule.HandlerModule::class])
 class DatabaseModule {
 
     @Provides
@@ -14,9 +14,8 @@ class DatabaseModule {
     fun providesDatabaseName() : String = "phrases-db"
 
     @Module
-    abstract class DatabaseHandlerModule {
-
+    abstract class HandlerModule {
         @Binds
-        abstract fun bindDatabaseHandler(impl: DatabaseHandlerImpl) : DatabaseHandler
+        abstract fun bindsDatabaseHandler(impl: DatabaseHandlerImpl) : DatabaseHandler
     }
 }

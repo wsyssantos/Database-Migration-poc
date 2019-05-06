@@ -6,7 +6,10 @@ import dev.wesleysantos.database.dataset.PhrasesDataSet
 import dev.wesleysantos.database.dataset.PhrasesDataSetImpl
 
 
-@Module(includes = [DatabaseModule::class, DaoModule::class])
+@Module(includes = [
+    DatabaseModule::class,
+    DaoModule::class
+])
 abstract  class LocalDatasetModule {
 
     @Binds

@@ -9,5 +9,5 @@ import dev.wesleysantos.database.handler.DatabaseHandler
 class DaoModule {
 
     @Provides
-    fun providePhrasesDao(databaseHandler: DatabaseHandler ) : PhrasesDao = databaseHandler.getPhrasesDao()
+    fun providePhrasesDao(databaseHandler: DatabaseHandler) : PhrasesDao = databaseHandler.getPhrasesDao()
 }

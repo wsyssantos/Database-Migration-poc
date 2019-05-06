@@ -1,7 +1,7 @@
 package dev.wesleysantos.interactor
 
 import dev.wesleysantos.interactormapper.phrase.PhraseMapper
-import dev.wesleysantos.repository.model.PhraseViewModel
+import dev.wesleysantos.interactormapper.model.PhraseViewModel
 import dev.wesleysantos.repository.phrases.PhrasesRepository
 import io.reactivex.Single
 import javax.inject.Inject
