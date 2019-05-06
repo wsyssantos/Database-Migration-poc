@@ -1,20 +1,19 @@
 package dev.wesleysantos.database.dataset
 
-import dev.wesleysantos.database.gen.Phrases
-import dev.wesleysantos.database.gen.PhrasesDao
+import dev.wesleysantos.database.room.dao.PhraseDao
+import dev.wesleysantos.database.room.entity.Phrase
 import javax.inject.Inject
 
 class PhrasesDataSetImpl @Inject constructor(
-    private val phrasesDao: PhrasesDao
+    private val phrasesDao: PhraseDao
 ) : PhrasesDataSet {
 
-    override fun getAllPhrases(): List<Phrases> =
-        phrasesDao.queryBuilder().list()
+    override fun getAllPhrases(): List<Phrase> =
+        phrasesDao.getAllPhrases()
 
     override fun addPhrase(phrase: String) {
-        Phrases().apply {
-            this.phrase = phrase
-            phrasesDao.insert(this)
+        Phrase(id = 0, phrase = phrase).apply {
+            phrasesDao.insertPhrase(this)
         }
     }
 }

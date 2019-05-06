@@ -1,21 +1,23 @@
 package dev.wesleysantos.database.di
 
-import dagger.Binds
+import android.content.Context
+import androidx.room.Room
 import dagger.Module
 import dagger.Provides
-import dev.wesleysantos.database.handler.DatabaseHandler
-import dev.wesleysantos.database.handler.DatabaseHandlerImpl
+import dev.wesleysantos.database.room.PhrasesDatabase
 
-@Module(includes = [DatabaseModule.HandlerModule::class])
+@Module
 class DatabaseModule {
 
     @Provides
     @DatabaseName
     fun providesDatabaseName() : String = "phrases-db"
 
-    @Module
-    abstract class HandlerModule {
-        @Binds
-        abstract fun bindsDatabaseHandler(impl: DatabaseHandlerImpl) : DatabaseHandler
-    }
+    @Provides
+    fun providePhrasesDatabase(context: Context, @DatabaseName dbName: String) : PhrasesDatabase =
+        Room.databaseBuilder(context, PhrasesDatabase::class.java, dbName)
+            .fallbackToDestructiveMigration()
+            .allowMainThreadQueries()
+            .addMigrations(PhrasesDatabase.MIGRATION_1_2)
+            .build()
 }
