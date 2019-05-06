@@ -12,7 +12,7 @@ class PhrasesDataSetImpl @Inject constructor(
         phrasesDao.getAllPhrases()
 
     override fun addPhrase(phrase: String) {
-        Phrase(id = 0, phrase = phrase).apply {
+        Phrase(phrase = phrase).apply {
             phrasesDao.insertPhrase(this)
         }
     }
