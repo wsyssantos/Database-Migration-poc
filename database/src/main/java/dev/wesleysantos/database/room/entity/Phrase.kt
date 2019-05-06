@@ -10,5 +10,7 @@ data class Phrase(
     @ColumnInfo(name = "ID")
     var id: Int? = null,
     @ColumnInfo(name = "PHRASE")
-    var phrase: String? = ""
-)
+    var nullablePhrase: String? = ""
+) {
+    val phrase = nullablePhrase ?: ""
+}
