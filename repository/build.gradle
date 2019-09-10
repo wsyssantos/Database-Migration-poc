@@ -4,42 +4,29 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion AndroidSdk.compile
+    setCompileSdkVersion(AndroidSdk.compile)
 
     defaultConfig {
-        minSdkVersion AndroidSdk.min
-        targetSdkVersion AndroidSdk.target
-        versionCode 1
-        versionName "1.0"
-
-        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        minSdkVersion (AndroidSdk.min)
+        targetSdkVersion (AndroidSdk.target)
+        versionCode = 1
+        versionName = "1.0"
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
     buildTypes {
         release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            minifyEnabled = false
+            proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
         }
     }
 }
 
 dependencies {
-    api project(':database')
-
-    implementation Libraries.kotlinStdLib
-
-    kapt Libraries.daggerKapt
-    implementation Libraries.dagger
-    kapt Libraries.daggerAndroidKapt
-    implementation Libraries.daggerAndroid
-
-    implementation Libraries.rxJavaAndroid
-    implementation Libraries.rxKotlin
-    implementation Libraries.rxJava
-
-    implementation Libraries.appCompat
-
-    testImplementation TestLibraries.junit4
-    androidTestImplementation TestLibraries.testRunner
-    androidTestImplementation TestLibraries.espresso
+    api(project(":database"))
+//    addKotlinStdLib()
+//    addDagger()
+//    addRx()
+//    addAndroidX()
+//    addDefaultTesting()
 }

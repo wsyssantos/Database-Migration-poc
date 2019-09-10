@@ -1,33 +1,11 @@
-buildscript {
-
-    repositories {
-        jcenter()
-        google()
-    }
-
-    dependencies {
-        classpath("com.android.tools.build:gradle:3.5.0")
-    }
-}
-
 plugins {
     `kotlin-dsl`
 }
-
-allprojects {
-    repositories {
-        jcenter()
-        google()
-    }
-}
-
-gradlePlugin {
-    plugins {
-        register("symbols-plugin") {
-            id = "symbols"
-            implementationClass = "com.don11995.build.Symbols"
-        }
-    }
+// Required since Gradle 4.10+.
+repositories {
+    jcenter()
+    google()
+    mavenCentral()
 }
 
 kotlinDslPluginOptions {
@@ -36,4 +14,7 @@ kotlinDslPluginOptions {
 
 dependencies {
     implementation("com.android.tools.build:gradle:3.5.0")
+    implementation("org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.50")
+    implementation(gradleApi())
+    implementation(localGroovy())
 }
