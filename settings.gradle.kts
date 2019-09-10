@@ -1,0 +1,1 @@
+include (":app", ":database", ":daogenerator", ":repository", ":interactor", ":phraselist", ":dependencyinjection", ":interactormapper")

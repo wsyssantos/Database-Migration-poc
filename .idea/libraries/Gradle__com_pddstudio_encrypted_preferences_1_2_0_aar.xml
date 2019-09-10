@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: com.pddstudio:encrypted-preferences:1.2.0@aar">
     <CLASSES>
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/284f52266a5d5d5f13f4250a655b789f/jars/classes.jar!/" />
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/284f52266a5d5d5f13f4250a655b789f/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/443156fb9fcead7f9516c21a8649c624/encrypted-preferences-1.2.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/443156fb9fcead7f9516c21a8649c624/encrypted-preferences-1.2.0/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES>

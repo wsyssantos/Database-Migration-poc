@@ -4,17 +4,14 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 28
-
+    compileSdkVersion AndroidSdk.compile
 
     defaultConfig {
-        minSdkVersion 16
-        targetSdkVersion 28
+        minSdkVersion AndroidSdk.min
+        targetSdkVersion AndroidSdk.target
         versionCode 1
         versionName "1.0"
-
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
     }
 
     buildTypes {
@@ -23,31 +20,30 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
-
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation Libraries.kotlinStdLib
 
-    implementation 'net.zetetic:android-database-sqlcipher:3.5.9@aar'
-    implementation 'com.pddstudio:encrypted-preferences:1.2.0'
+    implementation Libraries.sqlCipher
+    implementation Libraries.encryptedPreferences
 
-    kapt "com.google.dagger:dagger-android-processor:$dagger_version"
-    implementation "com.google.dagger:dagger-android-support:$dagger_version"
-    kapt "com.google.dagger:dagger-compiler:$dagger_version"
-    implementation "com.google.dagger:dagger:$dagger_version"
+    kapt Libraries.daggerKapt
+    implementation Libraries.dagger
+    kapt Libraries.daggerAndroidKapt
+    implementation Libraries.daggerAndroid
 
-    implementation "androidx.room:room-runtime:2.0.0-rc01"
-    implementation "androidx.room:room-rxjava2:2.0.0-rc01"
-    kapt "androidx.room:room-compiler:2.0.0-rc01"
+    implementation Libraries.roomRuntime
+    implementation Libraries.roomRx
+    kapt Libraries.roomKapt
 
-    implementation "io.reactivex.rxjava2:rxandroid:$rx_java_android_version"
-    implementation "io.reactivex.rxjava2:rxkotlin:$rx_kotlin_version"
-    implementation "io.reactivex.rxjava2:rxjava:$rx_java_version"
+    implementation Libraries.rxJavaAndroid
+    implementation Libraries.rxKotlin
+    implementation Libraries.rxJava
 
-    implementation 'androidx.appcompat:appcompat:1.0.2'
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    implementation Libraries.appCompat
+
+    testImplementation TestLibraries.junit4
+    androidTestImplementation TestLibraries.testRunner
+    androidTestImplementation TestLibraries.espresso
 }

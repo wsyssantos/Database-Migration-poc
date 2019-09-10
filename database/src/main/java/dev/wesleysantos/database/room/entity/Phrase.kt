@@ -12,5 +12,6 @@ data class Phrase(
     @ColumnInfo(name = "PHRASE")
     var nullablePhrase: String? = ""
 ) {
-    val phrase = nullablePhrase ?: ""
+    val phrase: String
+        get() = nullablePhrase ?: ""
 }

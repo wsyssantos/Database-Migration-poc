@@ -4,11 +4,11 @@ apply plugin: 'kotlin-android-extensions'
 apply plugin: 'kotlin-kapt'
 
 android {
-    compileSdkVersion 28
+    compileSdkVersion AndroidSdk.compile
     defaultConfig {
         applicationId "dev.wesleysantos.databasemigration"
-        minSdkVersion 16
-        targetSdkVersion 28
+        minSdkVersion AndroidSdk.min
+        targetSdkVersion AndroidSdk.target
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
@@ -22,24 +22,23 @@ android {
 }
 
 dependencies {
-    implementation fileTree(dir: 'libs', include: ['*.jar'])
-    implementation"org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-    implementation 'androidx.appcompat:appcompat:1.0.2'
-    implementation 'androidx.core:core-ktx:1.0.1'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation Libraries.kotlinStdLib
+    implementation Libraries.appCompat
+    implementation Libraries.ktx
+    implementation Libraries.constraintLayout
 
     implementation project(':dependencyinjection')
 
-    kapt "com.google.dagger:dagger-android-processor:$dagger_version"
-    implementation "com.google.dagger:dagger-android-support:$dagger_version"
-    kapt "com.google.dagger:dagger-compiler:$dagger_version"
-    implementation "com.google.dagger:dagger:$dagger_version"
+    kapt Libraries.daggerKapt
+    implementation Libraries.dagger
+    kapt Libraries.daggerAndroidKapt
+    implementation Libraries.daggerAndroid
 
-    implementation "io.reactivex.rxjava2:rxandroid:$rx_java_android_version"
-    implementation "io.reactivex.rxjava2:rxkotlin:$rx_kotlin_version"
-    implementation "io.reactivex.rxjava2:rxjava:$rx_java_version"
+    implementation Libraries.rxJavaAndroid
+    implementation Libraries.rxKotlin
+    implementation Libraries.rxJava
 
-    testImplementation 'junit:junit:4.12'
-    androidTestImplementation 'androidx.test:runner:1.1.1'
-    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
+    testImplementation TestLibraries.junit4
+    androidTestImplementation TestLibraries.testRunner
+    androidTestImplementation TestLibraries.espresso
 }
