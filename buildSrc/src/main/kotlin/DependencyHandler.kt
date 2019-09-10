@@ -50,6 +50,11 @@ fun DependencyHandlerScope.addDefaultTesting() {
     this.add("androidTestImplementation", TestLibraries.espresso)
 }
 
+fun DependencyHandlerScope.addEncryptedPreferences() {
+    this.add("implementation", Libraries.sqlCipher)
+    this.add("implementation", Libraries.encryptedPreferences)
+}
+
 fun DependencyHandlerScope.api(dependency: Dependency) {
     this.add("api", dependency)
 }
